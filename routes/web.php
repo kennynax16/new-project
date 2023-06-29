@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/post','PostController@index')->name('post.index');
-Route::get('/post/create','PostController@create')->name('post.create');
-Route::post('/post','PostController@store')->name('post.store');
-Route::get('/post/{post}','PostController@show')->name('post.show');
-Route::get('/post/{post}/edit','PostController@edit')->name('post.edit');
-Route::patch('/post/{post}','PostController@update')->name('post.update');
-Route::delete('/post/{post}','PostController@destroy')->name('post.destroy');
+Route::group(['namespace'=>'Post'],function (){
+    Route::get('/post','IndexController')->name('post.index');
+    Route::get('/post/create','CreateController')->name('post.create');
+    Route::post('/post','StoreController')->name('post.store');
+    Route::get('/post/{post}','ShowController')->name('post.show');
+    Route::get('/post/{post}/edit','EditController')->name('post.edit');
+    Route::patch('/post/{post}','UpdateController')->name('post.update');
+    Route::delete('/post/{post}','DestroyController')->name('post.destroy');
+});
+
+
 

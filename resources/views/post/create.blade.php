@@ -18,7 +18,7 @@
             </div>
                 <div class="mb-3">
                     <label for="text" class="form-label">Адрес электронной почты</label>
-                    <input value="{{ old('emal') }}" type="text" class="form-control" id="text" name="email">
+                    <input value="{{ old('email') }}" type="text" class="form-control" id="text" name="email">
                     @error('email')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
@@ -38,7 +38,7 @@
                                     value="{{$category->id}}">{{$category->position}}</option>
                             @endforeach
                         </select>
-                        <label for="category">Теги</label>
+                        <label for="tag">Теги</label>
                         <select class="form-select" name="tags[]" multiple aria-label="пример множественного выбора">
                             @foreach($tags as $tag)
                                 <option value="{{$tag->id}}">{{$tag->title}}</option>
